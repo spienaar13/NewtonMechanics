@@ -1,6 +1,6 @@
 'use strict';
 const start = (say, sendButton) => {
-   say('In this lesson, we will be going through a lot of material. If you would like to skip some bits feel free!\u000AJust remember there might be a few quizzes and questions along the way.').then(() => {
+   say('In this lesson, we will be going through a lot of material 📚📖. If you would like to skip some bits feel free!\u000AJust remember there might be a few quizzes 📄 and questions📋 along the way.').then(() => {
        sendButton('Which law would you like to learn about? 🙂 ?', [{title: 'Learn Vectors', payload: '{"action":"0"}'},
        {title: 'Newton\'s 1st Law', payload: '{"action":"1"}'},
        {title: 'Newton\'s 2nd Law', payload: '{"action":"2"}'},
@@ -23,7 +23,7 @@ const state = (payload, say, sendButton) => {
    */
    if (action === '0') {
       // introduction lesson plan
-       say(['To understand the way physicists describe various physical phenomena, they split the types of measurements used into two different categories:', 'Scalars and Vectors']).then(() => {
+       say(['To understand the way physicists 👨🏾‍🔬describe various physical phenomena, they split the types of measurements used into two different categories:', 'Scalars and Vectors']).then(() => {
            sendButton('Which do you want to learn about?',
            [{title: 'Scalars', payload: '{"action": "scalars"}'}, {title: 'Vectors', payload: '{"action" :"vectors"}'}, {title: 'Skip', payload: '{"action" : "quiz1", "quiz" : 1, "score" : 0}'}]);
        });
@@ -32,7 +32,7 @@ const state = (payload, say, sendButton) => {
    if (action === 'scalars') {
        say(['A scalar is a quantity of magnitude, meaning it is a measurement that describes the amount of something.',
        'Examples of scalars: Distance (m) , Time (s, for second), Speed(m/s) and Mass (kg).',
-       'The basic operations - addition, subtraction, multiplication, division - can be directly performed on scalar’s.',
+       'The basic operations - ➕addition, ➖subtraction, ✖️multiplication, ➗division - can be directly performed on scalar’s.',
        {attachment: 'image', url: 'https://i.imgur.com/6HzIGdB.png'},
        'For example: 10 kg + 5 kg = 15kg or 60s / 4 = 15s']).then(() => {
            sendButton('What next?', [{title: 'Vectors', payload: '{"action" :"vectors"}'}, {title: 'Skip', payload: '{"action" : "quiz1", "quiz" : 1, "score" : 0}'}]);
@@ -42,10 +42,10 @@ const state = (payload, say, sendButton) => {
        say(['A quantity of both magnitude and direction, meaning it has to describe both how much and in what direction, something acts in. Examples of Vectors: Forces, Displacement, Velocity, and Acceleration.',
        'Basic operations can not be directly applied to vectors because they have direction.',
        {attachment: 'image', url: 'https://i.imgur.com/JuEtSKF.png'},
-       'As you can see all vectors can be drawn as a line with an arrow representing the direction and with a length that represents its magnitude/strength. ' +
+       'As you can see all vectors can be drawn as a line with an arrow representing the direction ↗️ and with a length that represents its magnitude/strength. ' +
        'These directions are mathematically represented by giving the angle the vector is away from the x-axis - where pointing right is 0 or 360 degrees.',
        {attachment: 'image', url: 'https://i.imgur.com/d39r8mS.png'},
-       'Words can also be used to describe the direction of a vector . For example, “up” or “north” would imply 90 degrees and “left” or “west” would imply 180 degrees.']).then(() => {
+       'Words can also be used to describe the direction of a vector . For example, “up” or “north” ⬆️ would imply 90 degrees and ⬅️ “left” or “west” would imply 180 degrees.']).then(() => {
            sendButton('What next?', [{title: 'Scalars', payload: '{"action" :"scalars"}'}, {title: 'Quiz', payload: '{"action" : "quiz1", "quiz" : 1, "score" : 0}'}]);
        });
    }
@@ -62,7 +62,7 @@ const state = (payload, say, sendButton) => {
       
        // Question 1 + intro:
        if (quiz == 1) {
-           say(["Here is the start of your first quiz", "There are 4 questions, if you get 3 right, you can move on. Otherwise, you can choose to review the section."]).then(() => {
+           say(["Here is the start of your first quiz📋", "There are 4 questions, if you get 3 right, you can move on. Otherwise, you can choose to review the section."]).then(() => {
                sendButton("Q1. Which of the following are all vectors?\u000AA. Force, Velocity, Acceleration\u000AB. Speed, Distance, Weight\u000AC. Displacement, Time, Mass",
                [{title: "A. ", payload: JSON.stringify(gPayload)},
                {title: "B. ", payload: JSON.stringify(bPayload)},
@@ -81,7 +81,7 @@ const state = (payload, say, sendButton) => {
           
        // Question 3:
        if (quiz == 3) {
-           sendButton("Q3. What would be the difference in displacement between 40m and 20m",
+           sendButton("Q3. What would be the difference in displacement between 40m and 20m?",
            [{title: "A. A20m", payload: JSON.stringify(bPayload)},
            {title: "B. 40m", payload: JSON.stringify(bPayload)},
            {title: "C. Not enough info", payload: JSON.stringify(gPayload)}]);
@@ -89,11 +89,11 @@ const state = (payload, say, sendButton) => {
           
        // Question 4:
        if (quiz == 4) {
-           sendButton("Q4. Which of the following vectors are the same as 15m/s left",
-           [{title: "15 m/s @ 180 degrees", payload: JSON.stringify(bPayload)},
-           {title: "250 km/h Left", payload: JSON.stringify(bPayload)},
-           {title: "15 m/s West", payload: JSON.stringify(bPayload)},
-           {title: "All of the above", payload: JSON.stringify(gPayload)}]);
+           sendButton("Q4. Which of the following vectors are the same as 15m/s left?\u000AA. 15 m/s @ 180 degrees\u000AB. 250 km/h Left\u000AC. 15 m/s West\u000AD. All of the above",
+           [{title: "A.", payload: JSON.stringify(bPayload)},
+           {title: "B.", payload: JSON.stringify(bPayload)},
+           {title: "C.", payload: JSON.stringify(bPayload)},
+           {title: "D.", payload: JSON.stringify(gPayload)}]);
        }
           
        // SCORE AND REVIEW:
@@ -110,7 +110,7 @@ const state = (payload, say, sendButton) => {
    // Vector Calculations
    if(action === 'calcs') {
        say(['When we, as physicists, need to try and solve for the motion of some object, we need to first examine how many dimensions the object is moving in.',
-       'If we are looking at a car traveling in a straight line or an apple falling from a tree, the object is only acting in one dimension. On either the x- or the y-axis.',
+       'If we are looking at a car🚗 traveling in a straight line or an apple🍏 falling from a tree, the object is only acting in one dimension. On either the x- or the y-axis.',
        {attachment : 'image', url: 'https://i.imgur.com/Q8vQHPB.png'},
        'In these examples, as long as we define a certain direction as being ‘positive’, then we should be able to perform vector calculations easily.',
        {attachment: 'image', url: 'https://i.imgur.com/oeLUieo.png'}]).then(() => {
@@ -122,17 +122,17 @@ const state = (payload, say, sendButton) => {
   
    if (action === 'calcs1.0' || action === 'calcs1.1') {
        switch (action) {
-           case 'calcs1.0' : sayArray = ["Incorrect. You need to assign North to be positive, making 50m south negative: 40 - 50 = - 50m = 50m South"];
+           case 'calcs1.0' : sayArray = ["Incorrect.🧐 You need to assign North to be positive, making 50m south negative: 40 - 50 = - 50m = 50m South"];
            break;
-           case 'calcs1.1' : sayArray = ["Correct! You could've assigned North to be positive, making 50m south negative: 40 - 50 = - 50m = 50m South"];
+           case 'calcs1.1' : sayArray = ["Correct!😀 You could've assigned North to be positive, making 50m south negative: 40 - 50 = - 50m = 50m South"];
            break;
        }
       
-       sayArray.push("However when we bring in a second dimension, our calculations become a bit more complicated; we need to start using trigonometry.",
+       sayArray.push("However when we bring in a second dimension, our calculations become a bit more complicated; we need to start using trigonometry.📐",
            {attachment : 'image', url: "https://i.imgur.com/QaOO64X.png"},
            "In this example, it is useful to think of a vector as the hypotenuse of a triangle.",
            "You can split these vectors up into their vertical and horizontal components, perform the calculations on those components and then add them back together again.",
-           "Let's look at a simple example with only one vector:\u000AYou may use calculator with sin and cos functions",
+           "Let's look at a simple example with only one vector:\u000AYou may use calculator📚📱 with sin and cos functions",
            {attachment : 'image', url: "https://i.imgur.com/tj45TNz.png"});
       
        say(sayArray).then(() => {
@@ -143,9 +143,9 @@ const state = (payload, say, sendButton) => {
        });
    }
   
-   if (action === 'calcs2.0') sendButton('Your answer is incorrect. You might need to go back and review your trigonometry in order to use Newton’s Laws.', [{title: "Quit", payload: 'restart'}, {title: "Continue Anyway", payload: '{"action" : "calcs2.1"}'}]);
+   if (action === 'calcs2.0') sendButton('Your answer is incorrect.🧐 You might need to go back and review your trigonometry in order to use Newton’s Laws.', [{title: "Quit", payload: 'restart'}, {title: "Continue Anyway", payload: '{"action" : "calcs2.1"}'}]);
    if (action === 'calcs2.1') {
-      sayArray = ['Awesome!',
+      sayArray = ['Awesome!☺️',
                'In this example we can multiply 50 by sin(30) to get the vertical component and to get the horizontal component, we can multiply 50 by cos(30). Just basic SohCahToa!',
                'Now take a look back at the first example. If we split the vectors into into its separate components, it would look like this: ',
                {attachment: 'image', url: 'https://i.imgur.com/xHIOTRz.png'},
@@ -164,10 +164,10 @@ const state = (payload, say, sendButton) => {
            case 'calcs3.0' : sayArray = ["The correct answer is C", "In this example, all we need to do is apply the basic operations to the decomposed vector. " + 
            "Because up and right are positive by convention, we get the Vertical component through: 28.3 - 26.0 = 2.3 and the horizontal component through: 28.3 + 15 = 43.3."];
            break;
-           case 'calcs3.1' : sayArray = ["Correct!"];
+           case 'calcs3.1' : sayArray = ["Correct!👍"];
        }
        sayArray.push('Now the last step is to figure out the angle and the magnitude of the resultant vector from the vertical and horizontal components.',
-           {attachment : 'image', url: ''},
+           {attachment : 'image', url: 'https://i.imgur.com/kAozYjo.png'},
            'In this we can just use pythagoras’ theorem to find the magnitude and the inverse tan function to find the degree of the resultant vector.');
        say(sayArray).then(() => {
            sendButton('Therefore, 40 units @ 45 degrees + 30 units and 330 degrees = \u000AA. 45 units @ 15 degrees\u000AB. 43.4 units @ 3 degrees\u000AC. 40 units @ 2 degrees',
@@ -178,18 +178,18 @@ const state = (payload, say, sendButton) => {
    }
  
    if (action === 'calcs4.0') {
-       say(["Unfortunately your answer is incorrect.", "The correct answer is B. Here's how:",
-           {attachment : 'image', url: 'https:helloworld.com'}]).then(() => {
+       say(["Unfortunately your answer is incorrect.😬", "The correct answer is B. Here's how:",
+           {attachment : 'image', url: 'https://i.imgur.com/zFsW9Ge.png'}]).then(() => {
                sendButton('Continue?', [{title: 'Yes', payload: '{"action" : "calcs4.1"}'}, {title: 'Restart Vectors Calculations', payload: '{"action" : "calcs"}'}]);
            });
    }
    if (action === 'calcs4.1') {
-       sayArray = ['Fantastic!', "Your solution probably looks something like this: ",
-       {attachment : 'image', url: 'https:helloworld.com'},
+       sayArray = ['Fantastic!😎Your solution probably looks something like this: ',
+       {attachment : 'image', url: 'https://i.imgur.com/zFsW9Ge.png'},
        'If you look closely, you will see that this is the same as putting the vectors tip to tail!',
-       {attachment : 'image', url: 'https:helloworld.com'},
-       'Now it’s time to try this entirely by yourself! Grab a pen and paper solve the addition of these THREE vectors:',
-       {attachment : 'image', url: 'https:helloworld.com'}];
+       {attachment : 'image', url: 'https://i.imgur.com/pnsoeml.png'},
+       'Now it’s time to try this entirely by yourself! Grab a pen and paper 📝 solve the addition of these THREE vectors:',
+       {attachment : 'image', url: 'https://i.imgur.com/jvMzrzf.png'}];
        say(sayArray).then(() => {
            sendButton('The resulting vector is: \u000A*Use calculator\u000A*Round of to the 2nd unit in your calculations', [
                {title: "A. 23.4m @ 170 degrees", payload: '{"action" : "calcs5.0"}'},
@@ -199,7 +199,7 @@ const state = (payload, say, sendButton) => {
    }
    if (action === 'calcs5.0') {
        say(['Unfortunately, you have not answered this last question correctly. This is how you would decompose the vector into its vert. and horiz. components:',
-       {attachment : 'image', url: 'https:helloworld.com'},
+       {attachment : 'image', url: 'https://i.imgur.com/8xKVAfP.png'},
        'Vertical = 35.36 - 35.36 = 0;\u000AHorizontal = -35.36 - 18.7 + 54.06 = 0']).then(() => {
            sendButton('What next?', [{title: 'Review Vector Calculations', payload: '{"action" :"calcs"}'}, {title: 'Continue to finish', payload: '{"action" : "calcs5.1"}'}]);
        });
@@ -221,10 +221,10 @@ const state = (payload, say, sendButton) => {
    */
    // Introduce Newton
    if (action === '1') {
-       say([{attachment : 'image', url: 'https:helloworld.com'}, "Greetings! I am Sir Isaac Newton (United Kingdom, 1727), one of the world’s most renowned physicists.",
+       say([{attachment : 'image', url: 'https://i.imgur.com/ZLct4Qy.png'}, "Greetings! I am Sir Isaac Newton (United Kingdom, 1727), one of the world’s most renowned physicists.",
            '\'Tis I whomst discovered the Three Laws of Motion: a most fundamental description of particles’ movement through space.' +
-           'It can accurately describe the travel of a baseball, football, car etc… through the air or on ground given the sum of all forces acting on it.',
-           {attachment : 'image', url: 'https:helloworld.com'},
+           'It can accurately describe the travel of a baseball⚾️, footbal🏈l, car🚗 etc… through the air or on ground given the sum of all forces acting on it.',
+           {attachment : 'image', url: 'https://i.imgur.com/GSWnjqs.png'},
            'Before we look at my first law, we need to go through a couple of terms most commonly used by physicist to describe motion:\u000ADisplacement, Velocity, Acceleration, Forces, Friction, Mass, Weight',
            'I will be testing your knowledge of these terms in a quiz, so make sure you understand each before continuing!']).then(() => {
                sendButton('Which one do you want to learn about first?', [
@@ -243,7 +243,7 @@ const state = (payload, say, sendButton) => {
        say(['Displacement (D) is the straight line distance between two points, measured in meters (m).',
        'It is distinct from distance traveled/total path even though both are a way of keeping track of a change in position.',
        'Displacement is a vector',
-       {attachment : 'image', url : 'peep'}]).then(() => {
+       {attachment : 'image', url : 'https://i.imgur.com/y4AcJgG.png'}]).then(() => {
            sendButton('Next?', [
                    {title: 'Velocity', payload: '{"action" : "vel"}'},
                    {title: 'Acceleration', payload: '{"action" : "acc"}'},
@@ -255,9 +255,8 @@ const state = (payload, say, sendButton) => {
    }
    if (action === 'vel') {
        say(['A measure of displacement (m) per unit time (= m/s). Different to ‘speed’, which measures distances traveled per unit time.',
-       'If a race car travels around a NASCAR track at 100km/h, after exactly one lap the average speed would be 100km/h, however the average velocity will be 0.',
-       'This is because velocity is a vector',
-       {attachment : 'image', url : 'peep'}]).then(() => {
+       'If a race car travels around a NASCAR track at 100km/h💨, after exactly one lap the average speed would be 100km/h, however the average velocity will be 0.',
+       'This is because velocity is a vector']).then(() => {
            sendButton('Next?', [
                    {title: 'Displacement', payload: '{"action" : "disp"}'},
                    {title: 'Acceleration', payload: '{"action" : "acc"}'},
@@ -272,7 +271,7 @@ const state = (payload, say, sendButton) => {
        'Acceleration is experienced by humans as the thing you feel pushing you back into the seat when you hit the gas pedal.',
        'Whenever the velocity of something changes, there is either a positive or a negative acceleration in that direction',
        'The average acceleration of any object on earth is 9.81 m/s^2 towards the earth’s surface (-9.81m/s^2).',
-       {attachment : 'image', url : 'peep'}]).then(() => {
+       {attachment : 'image', url : 'https://i.imgur.com/jCtBDaD.png'}]).then(() => {
            sendButton('Next?', [
                    {title: 'Displacement', payload: '{"action" : "disp"}'},
                    {title: 'Velocity', payload: '{"action" : "vel"}'},
@@ -286,9 +285,9 @@ const state = (payload, say, sendButton) => {
        say(['Any interaction that, when unopposed, will change the motion of an object. A force can therefore cause an object with mass to change its velocity.' ,
        'It should therefore be clear that forces and accelerations are in some way linked (hint for future)',
        'It is represented in the same way as a vector - a line with an arrow head.',
-       'The SI unit used to measure force is the Newton! (N). Yay me!',
+       'The SI unit used to measure force is the Newton! (N). Yay me!😎',
        'A common way to describe something pushing/pulling on material is to say that there is a force applied to the object, or Fappl for short.',
-       {attachment : 'image', url : 'peep'}]).then(() => {
+       {attachment : 'image', url : 'https://i.imgur.com/H1W11Ti.png'}]).then(() => {
            sendButton('Next?', [
                    {title: 'Displacement', payload: '{"action" : "disp"}'},
                    {title: 'Velocity', payload: '{"action" : "vel"}'},
@@ -303,7 +302,6 @@ const state = (payload, say, sendButton) => {
        'An object will not slide over a surface if the applied force is less than the friction force.',
        'In short, the reason why all objects don\'t just keep sliding around everywhere is because friction keeps them in place',
        'Imagine an air hockey table: This environment has nearly no surface friction',
-       {attachment: 'image', url : 'lilpeep.jpg'},                  
        '"Friction" is also used to describe any force that impedes the motion of an object',
        'There are two main types of friction forces: sliding and static.']).then(() => {
            sendButton('Do you want to learn the difference between static and sliding friction?', [
@@ -315,11 +313,11 @@ const state = (payload, say, sendButton) => {
    if (action === 'fric2' || action === 'fric3') {
        if (action === 'fric2') {
            sayArray = ['The difference in static and sliding friction is because, once an object starts to move across a surface, less force is required to continue its motion',
-            'You can demonstrate this yourself:\u000ATake any object of about 1kg mass, attach an elastic to it and place it on your desk\u000A' +
-            'Now try and stretch the elastic until the point just before it starts to slide',
-            {attachment: 'image', url: 'lilpeep.jpg'},
-            'Notice how this elastic stretches more just before it moves than whilst sliding\n\nThis is because static friction has a larger force than sliding',
-            {attachment: 'image', url: 'lilpeep.jpg'}];
+            'You can demonstrate this yourself:\u000ATake any object of about 1kg mass, attach an elastic or spring to it and place it on your desk\u000A' +
+            'Now try and stretch the elastic/spring until the point just before it starts to slide',
+            {attachment: 'image', url: 'https://i.imgur.com/LEPXxOP.jpg'},
+            'Notice how this elastic/spring stretches more just before it moves than whilst sliding\n\nThis is because static friction has a larger force than sliding',
+            {attachment: 'image', url: 'https://i.imgur.com/JvPXSj1.jpg'}];
        } else sayArray = ['skipping'];
        say(sayArray).then(() => {
            sendButton('Next?', [{title: 'Displacement', payload: '{"action" : "disp"}'},
@@ -333,7 +331,7 @@ const state = (payload, say, sendButton) => {
    }
   
    if (action === 'mvw') {
-       say(['Mass is quantitative measure of an object’s ability to resist a change in its velocity I.e the physical property of inertia.',
+       say(['Mass is quantitative measure of an object’s ability to resist a change in its velocity I.e the physical property of inertia.🏋️',
        'SI unit most commonly used is the Kilogram (Kg).',
        'Where-as weight is the force exerted by an object as result of its mass and gravity.',
        'To get your weight, you need to multiply your mass with acceleration due to gravity. E.g: 50 Kg x 9.81 m/s^2 = 490.5 N']).then(() => {
@@ -356,7 +354,7 @@ const state = (payload, say, sendButton) => {
       
        // Question 1
        if (quiz == 1) {
-           say(["Here is the start of your second quiz!", "There are 4 questions, if you get 3 right, you can move on. Otherwise, you can choose to review the section."]).then(() => {
+           say(["Here is the start of your second quiz!📋", "There are 4 questions, if you get 3 right, you can move on. Otherwise, you can choose to review the section."]).then(() => {
                sendButton("Q1. What units are the units used to describe Acceleration?\u000AA. Newton/meter (N/m)\u000AB. Meters/second/second (m/s^2)\u000AC. Displacement/second/second (m/s^2)\u000AD. Mass/meters/second (Kg/m.s)", [
                {title: "A.", payload: JSON.stringify(bPay)},
                {title: "B.", payload: JSON.stringify(bPay)},
@@ -415,8 +413,7 @@ const state = (payload, say, sendButton) => {
        say(['Now that you are armed with the language of physicists, we can look at my first law!',
        '_Every object persists in its state of rest or uniform motion in a straight line, unless it is made to change that state by an acting force._',
        'An example of uniform motion is traveling at constant velocity',
-       'This essentially says two things:\u000A\u000A1) An object\'s state remains the same when there is no net force\u000A' +
-       '2) An object moving in a straight line will not turn without a net force']).then(() => {
+       'This essentially says two things:\u000A\u000A1) An object\'s state remains the same when there is no net force\u000A 2) An object moving in a straight line will not turn without a net force']).then(() => {
            sendButton('But what is Constant Velocity more specifically?', [{title: 'Continue', payload: '{"action" : "constV"}'}]);
        });
    }
@@ -429,12 +426,12 @@ const state = (payload, say, sendButton) => {
            'Both of these require the sum of all forces acting on a body to be balanced. ' +
            'This is because any force that acts on a body causes it to accelerate in the direction of that force (my second law).',
            'Let\'s look at me falling from a plane as an example: ',
-           {attachment: 'image', url: 'lilpeep.jpg'},
+           {attachment: 'image', url: 'https://i.imgur.com/KVAcHHb.png'},
            'Here you can see there is an unbalanced force acting on me (gravity), so my velocity is changing (I\'m accelerating downwards)',
-           {attachment: 'image', url: 'lilpeep.jpg'},
+           {attachment: 'image', url: 'https://i.imgur.com/1gSoVsl.png'},
            'Here, I\'ve fallen for long enough to reach terminal velocity (where the force from wind resistance is equal to the force of gravity). ' +
            'I am now travelling at a *constant velocity*. There is no net acceleration. Which would look the same as this:',
-           {attachment: 'image', url: 'lilpeep.jpg'},
+           {attachment: 'image', url: 'https://i.imgur.com/eejKnvJ.png'},
            'Here, the force pushing up from the chair against my weight is the balancing force. So in both these cases I am in the same "state of motion" because the forces acting on me are balanced.'
            ]).then(() => {
                sendButton('I think I get it now', [
@@ -450,7 +447,7 @@ const state = (payload, say, sendButton) => {
            'A Frame of Reference is an abstract coordinate system that gives a physical reference point. Essentially, it allows the physicist to specify the direction’s being used in their calculations.',
            'It will indicate which way is up/down, left/right and can even be used to represent a 3-D space. ',
            'The y-axis is usually used to represent up height and the x-axis for width.',
-           {attachment: 'image', url: 'lilpeep.png'}]).then(() => {
+           {attachment: 'image', url: 'https://i.imgur.com/xdKIbN9.png'}]).then(() => {
            sendButton('Continue to quiz', [
                {title: 'Yes', payload: '{"action" : "quiz3", "quiz" : 1, "score" : 0}'},
                {title: 'No - restart section', payload: '{"action" : "1"}'}
@@ -460,58 +457,58 @@ const state = (payload, say, sendButton) => {
  
    // Quiz Number Three
    if (action === 'quiz3') {
-       var gPay = JSON.parse(payload);
-       var bPay = JSON.parse(payload);
+       var gPay3 = JSON.parse(payload);
+       var bPay3 = JSON.parse(payload);
       
-       gPay.score = gPay.score + 1;
-       gPay.quiz = gPay.quiz + 1;
+       gPay3.score = gPay3.score + 1;
+       gPay3.quiz = gPay3.quiz + 1;
       
-       bPay.quiz = bPay.quiz + 1;
+       bPay3.quiz = bPay3.quiz + 1;
       
        // Question 1 + intro:
        if (quiz == 1) {
            say(["Here is the start of your third quiz", "There are 7 questions, if you get 5 right, you can move on. Otherwise, you can choose to review the section."]).then(() => {
                sendButton('Q1. Objects in orbit around the Earth (like a satellite) must have a net force acting on them. ?',
-               [{title: "A. True", payload: JSON.stringify(gPay)},
-               {title: "B. False", payload: JSON.stringify(bPay)}]);
+               [{title: "A. True", payload: JSON.stringify(gPay3)},
+               {title: "B. False", payload: JSON.stringify(bPay3)}]);
            });
        }
  
        // Question 2-7:
        if (quiz == 2) {
            sendButton('When no net force is acting on a moving object, it still comes to rest because of its interia', [
-               {title: "A. True", payload: JSON.stringify(bPay)},
-               {title: "B. False", payload: JSON.stringify(gPay)}
+               {title: "A. True", payload: JSON.stringify(bPay3)},
+               {title: "B. False", payload: JSON.stringify(gPay3)}
            ]);
        }
        if (quiz == 3) {
            sendButton('A stationary object must have no forces acting on it.', [
-               {title: "A. True", payload: JSON.stringify(bPay)},
-               {title: "B. False", payload: JSON.stringify(gPay)}
+               {title: "A. True", payload: JSON.stringify(bPay3)},
+               {title: "B. False", payload: JSON.stringify(gPay3)}
            ]);
        }
        if (quiz == 4) {
            sendButton('When an object is moving at constant velocity, any forces acting on it must be balanced',[
-               {title: "A. True", payload: JSON.stringify(gPay)},
-               {title: "B. False", payload: JSON.stringify(bPay)}
+               {title: "A. True", payload: JSON.stringify(gPay3)},
+               {title: "B. False", payload: JSON.stringify(bPay3)}
            ]);
        }
        if (quiz == 5) {
            sendButton('An object that is not accelerating or decelerating, must have *no forces* acting on it', [
-               {title: "A. True", payload: JSON.stringify(bPay)},
-               {title: "B. False", payload: JSON.stringify(gPay)}
+               {title: "A. True", payload: JSON.stringify(bPay3)},
+               {title: "B. False", payload: JSON.stringify(gPay3)}
            ]);
        }
        if (quiz == 6) {
            sendButton('One can change the direction of an objet\'s motion without apply a net force', [
-               {title: "A. True", payload: JSON.stringify(bPay)},
-               {title: "B. False", payload: JSON.stringify(gPay)}
+               {title: "A. True", payload: JSON.stringify(bPay3)},
+               {title: "B. False", payload: JSON.stringify(gPay3)}
            ]);
        }
        if (quiz == 7) {
            sendButton('We have chosen a car moving at 100km/h right as our frame of reference. If a foam ball is dropped out the window, what velocity does it have?', [
-               {title: "A. 0 km/h", payload: JSON.stringify(bPay)},
-               {title: "B. ~ 100 km/h left", payload: JSON.stringify(gPay)},
+               {title: "A. 0 km/h", payload: JSON.stringify(bPay3)},
+               {title: "B. ~ 100 km/h left", payload: JSON.stringify(gPay3)},
            ]);
        }
  
@@ -629,30 +626,30 @@ const state = (payload, say, sendButton) => {
     }
     //quiz
     if (action === "CharlesQuiz") {
-        var gPay = JSON.parse(payload);
-        var bPay = JSON.parse(payload);
-        gPay.score = gPay.score + 1;
-        gPay.quiz = gPay.quiz + 1;
-        bPay.quiz = bPay.quiz + 1;
+        var gPa = JSON.parse(payload);
+        var bPa = JSON.parse(payload);
+        gPa.score = gPa.score + 1;
+        gPa.quiz = gPa.quiz + 1;
+        bPa.quiz = bPa.quiz + 1;
         
         //question 1
         if (quiz == 1) {
             say("Now you are going to be quized on all the material covered in this law!", 'If you score less than 3 out of 4, then you will not be allowed to progress').then(() => {
-                sendButton('Question 1: Let\'s say there is a rocket flying through space with a net force of 100,000N and a mass of 9500kg. Using Newton\'s Second Law, what is the magnitude of acceleration of the rocket?', [{title: '9.5e8 m/s^2', payload: bPay}, {title: '10.53 m/s^2', payload: gPay}, {title: '0.095 m/s^2', payload: bPay}]);
+                sendButton('Question 1: Let\'s say there is a rocket flying through space with a net force of 100,000N and a mass of 9500kg. Using Newton\'s Second Law, what is the magnitude of acceleration of the rocket?', [{title: '9.5e8 m/s^2', payload: bPa}, {title: '10.53 m/s^2', payload: gPa}, {title: '0.095 m/s^2', payload: bPa}]);
             });
         }
         //question 2
         if (quiz == 2) {
-            sendButton('Question 2: Let\'s say there is a 300kg rocket flying through space with a propulsion force of 1000N in the north direction and a friction force of 300N in the south direction. What is the direction of the net force of the rocket?', [{title: 'North', payload : gPay}, {title: 'South', payload : bPay}, {title: 'No acceleration', payload : bPay} ]);
+            sendButton('Question 2: Let\'s say there is a 300kg rocket flying through space with a propulsion force of 1000N in the north direction and a friction force of 300N in the south direction. What is the direction of the net force of the rocket?', [{title: 'North', payload : gPa}, {title: 'South', payload : bPa}, {title: 'No acceleration', payload : bPa} ]);
         
         }
         //question 3
         if (quiz == 3) {
-            sendButton('Question 3: Using the same rocket from the last question, what is the magnitude of acceleration of the rocket?', [{title: '210,000 m/s^2', payload : bPay}, {title: '0.43 m/s^2', payload : bPay}, {title: '2.33 m/s^2', payload : gPay} ]);
+            sendButton('Question 3: Using the same rocket from the last question, what is the magnitude of acceleration of the rocket?', [{title: '210,000 m/s^2', payload : bPa}, {title: '0.43 m/s^2', payload : bPa}, {title: '2.33 m/s^2', payload : gPa} ]);
         }
         //question 4
         if (quiz == 4) {
-            sendButton('Question 4: What did Mary Jackson do?', [{title: 'Senior engineer at NASA', payload : bPay}, {title: 'Helped win space race', payload : bPay}, {title : 'Incredible mathematician', payload : bPay}, {title: 'All of the above', payload : gPay}]);
+            sendButton('Question 4: What did Mary Jackson do?', [{title: 'Senior engineer at NASA', payload : bPa}, {title: 'Helped win space race', payload : bPa}, {title : 'Incredible mathematician', payload : bPa}, {title: 'All of the above', payload : gPa}]);
         }
         //results
         if (quiz > 4) {
@@ -988,3 +985,5 @@ module.exports = {
 	start: start,
 	state: state
 };
+
+
